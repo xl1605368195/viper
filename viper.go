@@ -302,7 +302,7 @@ func NewWithOptions(opts ...Option) *Viper {
 func Reset() {
 	v = New()
 	SupportedExts = []string{"json", "toml", "yaml", "yml", "properties", "props", "prop", "hcl", "tfvars", "dotenv", "env", "ini"}
-	SupportedRemoteProviders = []string{"etcd", "etcd3", "consul", "firestore"}
+	SupportedRemoteProviders = []string{"http","etcd", "etcd3", "consul", "firestore"}
 }
 
 // TODO: make this lazy initialization instead
