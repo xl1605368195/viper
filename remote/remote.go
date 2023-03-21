@@ -12,7 +12,7 @@ import (
 	"os"
 	"strings"
 
-	crypt "github.com/sagikazarmark/crypt/config"
+	crypt "github.com/xl1605368195/crypt/config"
 
 	"github.com/spf13/viper"
 )
@@ -91,6 +91,8 @@ func getConfigManager(rp viper.RemoteProvider) (crypt.ConfigManager, error) {
 			cm, err = crypt.NewEtcdV3ConfigManager(endpoints, kr)
 		case "firestore":
 			cm, err = crypt.NewFirestoreConfigManager(endpoints, kr)
+		case "http":
+			cm, err = crypt.NewHttpConfigManager(endpoints, kr)
 		default:
 			cm, err = crypt.NewConsulConfigManager(endpoints, kr)
 		}
@@ -102,6 +104,8 @@ func getConfigManager(rp viper.RemoteProvider) (crypt.ConfigManager, error) {
 			cm, err = crypt.NewStandardEtcdV3ConfigManager(endpoints)
 		case "firestore":
 			cm, err = crypt.NewStandardFirestoreConfigManager(endpoints)
+		case "http":
+			cm, err = crypt.NewStandardHttpConfigManager(endpoints)
 		default:
 			cm, err = crypt.NewStandardConsulConfigManager(endpoints)
 		}
